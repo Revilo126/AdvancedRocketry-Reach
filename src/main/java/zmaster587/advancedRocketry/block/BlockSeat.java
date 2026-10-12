@@ -21,28 +21,27 @@ public class BlockSeat extends Block {
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
-	
+
 	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
-	
+
 	//If the block is destroyed remove any mounting associated with it
 	@Override
 	public void onBlockPreDestroy(World world, int x,
 			int y, int z, int meta) {
 		super.onBlockPreDestroy(world, x, y, z,	meta);
-		
-		List<Entity> list = world.getEntitiesWithinAABB(EntityDummy.class,AxisAlignedBB.getBoundingBox(x, y, z, x+1, y+1, z+1));
 
-		//We only expect one but just be sure
-		for(Entity e : list) {
+		List<? extends Entity> list = world.getEntitiesWithinAABB(EntityDummy.class, AxisAlignedBB.getBoundingBox(x, y, z, x+1, y+1, z+1));
+
+        for(Entity e : list) {
 			if(e instanceof EntityDummy) {
 				e.setDead();
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean onBlockActivated(World world, int x,	int y, int z, EntityPlayer player, int a, float b, float c, float d) {
 		if(!world.isRemote) {

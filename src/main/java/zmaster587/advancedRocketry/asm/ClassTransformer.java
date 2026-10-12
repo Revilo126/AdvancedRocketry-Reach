@@ -827,7 +827,16 @@ public class ClassTransformer implements IClassTransformer {
 	}
 
 	private byte[] finishInjection(ClassNode node) {
-		final ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_MAXS);
+		ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS) {
+            @Override
+            protected String getCommonSuperClass(String a, String b) {
+                try {
+                    return super.getCommonSuperClass(a, b);
+                } catch (Throwable t) {
+                    return "java/lang/Object";
+                }
+            }
+        };
 		node.accept(writer);
 		return writer.toByteArray();
 	}

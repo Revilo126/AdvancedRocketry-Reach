@@ -10,7 +10,7 @@ import net.minecraftforge.common.BiomeManager;
 
 public class GenLayerShoreExtended extends GenLayerExtendedCompare {
 
-	private static final String __OBFID = "CL_00000568";
+	//private static final String __OBFID = "CL_00000568";
 
 	public GenLayerShoreExtended(long p_i2130_1_, GenLayer p_i2130_3_)
 	{
@@ -174,7 +174,7 @@ public class GenLayerShoreExtended extends GenLayerExtendedCompare {
 	{
 		return AdvancedRocketryBiomes.instance.getBiomeById(p_151633_1_) != null && AdvancedRocketryBiomes.instance.getBiomeById(p_151633_1_) instanceof BiomeGenMesa;
 	}
-	
+
     protected static boolean isBiomeOceanic(int p_151618_0_)
     {
         return BiomeManager.oceanBiomes.contains(AdvancedRocketryBiomes.instance.getBiomeById(p_151618_0_));

@@ -17,7 +17,7 @@ public class BlockAlienPlanks extends Block {
     public static final String[] names = new String[] {"blue"};
     @SideOnly(Side.CLIENT)
     private IIcon[] icons;
-    private static final String __OBFID = "CL_00000335";
+    // private static final String __OBFID = "CL_00000335";
 
     public BlockAlienPlanks()
     {

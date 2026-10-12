@@ -12,12 +12,12 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 public class WorldGenMineableSpecial extends WorldGenerator {
 
-	
+
     private Block field_150519_a;
     /** The number of blocks to generate. */
     private int numberOfBlocks;
     private Block field_150518_c;
-    private static final String __OBFID = "CL_00000426";
+    //private static final String __OBFID = "CL_00000426";
     private int mineableBlockMeta;
 
     public WorldGenMineableSpecial(Block p_i45459_1_, int p_i45459_2_)

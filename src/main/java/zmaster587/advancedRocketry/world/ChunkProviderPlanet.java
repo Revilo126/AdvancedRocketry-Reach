@@ -86,7 +86,7 @@ public class ChunkProviderPlanet implements IChunkProvider {
 	private int seaLevel;
 	protected Block oceanBlock;
 	protected Block fillblock;
-	
+
 
 	private MapGenCrater craterGenerator;
 	private MapGenGeode geodeGenerator;
@@ -97,7 +97,7 @@ public class ChunkProviderPlanet implements IChunkProvider {
 	double[] field_147425_f;
 	double[] field_147426_g;
 	int[][] field_73219_j = new int[32][32];
-	private static final String __OBFID = "CL_00000396";
+	//private static final String __OBFID = "CL_00000396";
 
 	{
 		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
@@ -132,20 +132,20 @@ public class ChunkProviderPlanet implements IChunkProvider {
 				this.parabolicField[j + 2 + (k + 2) * 5] = f;
 			}
 		}
-		
+
 		DimensionProperties dimProperties = DimensionManager.getInstance().getDimensionProperties(p_i2006_1_.provider.dimensionId);
-		
+
 		seaLevel = dimProperties.getSeaLevel();
 		oceanBlock = dimProperties.getOceanBlock();
-		
+
 		if (oceanBlock == null)
 			oceanBlock = Blocks.water;
-		
+
 		fillblock = dimProperties.getStoneBlock();
-		
+
 		if (fillblock == null)
 			fillblock = Blocks.stone;
-		
+
 		NoiseGenerator[] noiseGens = {field_147431_j, field_147432_k, field_147429_l, field_147430_m, noiseGen5, noiseGen6, mobSpawnerNoise};
 		noiseGens = TerrainGen.getModdedNoiseGenerators(p_i2006_1_, this.rand, noiseGens);
 		this.field_147431_j = (NoiseGeneratorOctaves)noiseGens[0];
@@ -161,9 +161,9 @@ public class ChunkProviderPlanet implements IChunkProvider {
 
 		if(atmDensity < 0.75f)
 			craterGenerator = new MapGenCrater( (int)(10 +  (26*(1-atmDensity)) ));
-		else 
+		else
 			craterGenerator = null;
-		
+
 		if(atmDensity > 1.25f && Configuration.generateGeodes) {
 			geodeGenerator = new MapGenGeode(800);
 		}
@@ -291,7 +291,7 @@ public class ChunkProviderPlanet implements IChunkProvider {
 
 		if(this.craterGenerator != null)
 			this.craterGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock.ablock);
-		
+
 		if(this.geodeGenerator != null)
 			this.geodeGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock.ablock);
 
@@ -299,10 +299,10 @@ public class ChunkProviderPlanet implements IChunkProvider {
 		{
 			//TODO: structures
 		}
-		
+
 		return ablock;
 	}
-	
+
 	/**
 	 * Will return back a chunk, if it doesn't exist and its not a MP client it will generates all the blocks for the
 	 * specified chunk from the map seed and chunk seed
@@ -317,7 +317,7 @@ public class ChunkProviderPlanet implements IChunkProvider {
 		Chunk chunk = new Chunk(this.worldObj, ablock.ablock, ablock.abyte, x, z);
 		if(this.geodeGenerator != null)
 			geodeGenerator.setMetaPos(chunk, x, z);
-		
+
 		//TODO: convert back to int
 		byte[] abyte1 = chunk.getBiomeArray();
 
@@ -465,7 +465,7 @@ public class ChunkProviderPlanet implements IChunkProvider {
 
 		//TODO: add registry for planets
 		boolean populationFlag = ((WorldProviderPlanet)worldObj.provider).getDimensionProperties(k, l).hasRivers();
-		
+
 		if(populationFlag )
 			MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Pre(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag));
 
@@ -491,18 +491,18 @@ public class ChunkProviderPlanet implements IChunkProvider {
 				PlanetEventHandler.modifyChunk(worldObj, (WorldProviderPlanet)worldObj.provider, chunk);
 			}
 		}
-		
+
 		if (populationFlag)
 			MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag));
 
 		OreGenProperties oreGenProperties = DimensionManager.getInstance().getDimensionProperties(this.worldObj.provider.dimensionId).getOreGenProperties(this.worldObj);
-		
+
 		if(oreGenProperties != null) {
 			for(OreEntry entry : oreGenProperties.getOreEntries()) {
 				new CustomizableOreGen(entry).generate(rand, p_73153_2_, p_73153_3_, this.worldObj, this, this.worldObj.getChunkProvider());
 			}
 		}
-		
+
 		BlockFalling.fallInstantly = false;
 	}
 
@@ -572,7 +572,7 @@ public class ChunkProviderPlanet implements IChunkProvider {
 
 		}
 	}
-	
+
 	public static class BlockMetacoupling
 	{
 		public Block[] ablock = new Block[65536];

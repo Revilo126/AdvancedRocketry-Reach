@@ -51,7 +51,7 @@ public class RendererItem extends net.minecraft.client.renderer.entity.RenderIte
     /** Defines the zLevel of rendering of item on GUI. */
     public float zLevel;
     public static boolean renderInFrame;
-    private static final String __OBFID = "CL_00001003";
+    //private static final String __OBFID = "CL_00001003";
 
     public RendererItem()
     {
@@ -69,7 +69,7 @@ public class RendererItem extends net.minecraft.client.renderer.entity.RenderIte
     {
         super.doRender(p_76986_1_.getItemEntity(), p_76986_2_, p_76986_4_, p_76986_6_, p_76986_8_, p_76986_9_);
     }
-    
+
     @Override
     public void doRender(Entity p_76986_1_, double p_76986_2_, double p_76986_4_, double p_76986_6_, float p_76986_8_, float p_76986_9_)
     {

@@ -18,7 +18,7 @@ public class BiomeCacheExtended {
     private LongHashMap cacheMap = new LongHashMap();
     /** The list of cached BiomeCacheBlocks */
     private List cache = new ArrayList();
-    private static final String __OBFID = "CL_00000162";
+    //private static final String __OBFID = "CL_00000162";
 
     public BiomeCacheExtended(WorldChunkManager p_i1973_1_)
     {
@@ -101,7 +101,7 @@ public class BiomeCacheExtended {
         public int zPosition;
         /** The last time this BiomeCacheBlock was accessed, in milliseconds. */
         public long lastAccessTime;
-        private static final String __OBFID = "CL_00000163";
+        //private static final String __OBFID = "CL_00000163";
 
         public Block(int p_i1972_2_, int p_i1972_3_)
         {
@@ -110,7 +110,7 @@ public class BiomeCacheExtended {
             BiomeCacheExtended.this.chunkManager.getRainfall(this.rainfallValues, p_i1972_2_ << 4, p_i1972_3_ << 4, 16, 16);
             BiomeCacheExtended.this.chunkManager.getBiomeGenAt(this.biomes, p_i1972_2_ << 4, p_i1972_3_ << 4, 16, 16, false);
         }
-        
+
         /**
          * Returns the BiomeGenBase related to the x, z position from the cache block.
          */
